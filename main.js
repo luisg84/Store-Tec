@@ -20,7 +20,9 @@ app.on('ready', function(){
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
+
   }));
+  mainWindow.isResizable(false);
 
 
   //construye el menu desde el template
@@ -31,6 +33,7 @@ app.on('ready', function(){
   //Menu.setAppliactionMenu(mainMenu);
   Menu.setApplicationMenu(menu)
 });
+
 //Se encargara de agregar ventana
 function createAddWindow(){
   //crea una nueva ventana
@@ -46,6 +49,7 @@ function createAddWindow(){
     protocol: 'file:',
     slashes: true
   }));
+
   //se encarga de recoleccion de basura
   addWindow.on('close', function(){
     addWindow = null;
