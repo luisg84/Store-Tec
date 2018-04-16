@@ -1,7 +1,7 @@
-body > .grid {
+ .hg {
       height: 100%;
     }
-    .image {
+    .imaget {
       margin-top: -100px;
     }
     .column {
@@ -11,12 +11,36 @@ body > .grid {
 .cree{
 color: rgb(255, 255, 255);
 }
-
-body{
+/*Se le coloca el backgroun y color al fondo de el login*/
+.p1{
   background-image:url(../img/bg02.png);
   background-color: rgb(230, 230, 230);
 }
-
+/*Tamaño de el Logo de el login*/
 .logo{
   width: 140px;
+}
+/*Se le da tamaño, margenes y color  a la barra de el final de la pantalla para su diseño*/
+.contenedor-div{
+  margin-left:-15px;
+    	position:relative;
+      width: 900px;
+      background-color: rgb(2, 210, 161);
+      bottom:-30px;
+      height: 59px;
+
+
+}
+.mi-imagen-abajo-derecha{
+    position:absolute;
+    bottom:-100px;
+    right:10px;
+}
+
+.caja2{
+  margin-top:40px;
+}
+
+.titulo2{
+  margin-top: 100px;
 }

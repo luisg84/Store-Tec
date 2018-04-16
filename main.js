@@ -15,14 +15,17 @@ app.on('ready', function(){
 
   const {app, Menu} = require('electron')
 
+
   //carga el archvi html en la ventana
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
-    slashes: true
+    slashes: true,
+    isResizable:false,
 
   }));
-  mainWindow.isResizable(false);
+mainWindow.isResizable(false);
+
 
 
   //construye el menu desde el template
@@ -33,6 +36,8 @@ app.on('ready', function(){
   //Menu.setAppliactionMenu(mainMenu);
   Menu.setApplicationMenu(menu)
 });
+
+
 
 //Se encargara de agregar ventana
 function createAddWindow(){
