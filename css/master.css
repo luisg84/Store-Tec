@@ -44,3 +44,10 @@ color: rgb(255, 255, 255);
 .titulo2{
   margin-top: 100px;
 }
+
+
+/*Quitar bordes dela cabecera de la tabla*/
+.sb{
+
+  padding: 300px;
+}

@@ -49,11 +49,7 @@ function createAddWindow(){
   });
   const {app, Menu} = require('electron')
   //carga el archvi html en la ventana
-  addWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'addWindow.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
+  addWindow.loadURL('http://localhost/PHPBasicos/8tablas.php');
 
   //se encarga de recoleccion de basura
   addWindow.on('close', function(){
