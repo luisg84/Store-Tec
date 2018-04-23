@@ -61,6 +61,16 @@
     <a href="panel_cont_ad.html"><i class="huge arrow alternate circle left outline icon teal"></i></a>
   </div>
 
+  <div class="menbar">
+    <div class="ui four item menu">
+  <a class="item">Usuario</a>
+  <a class="item active">Productos</a>
+  <a class="item">Ventas</a>
+  <a class="item ">Soporte</a>
+</div>
+
+  </div>
+
 
 
   <div class="ui titulo2 grid centered  " style="margin-top:20px;  text-align:center;" >
@@ -69,6 +79,22 @@
   <div class="ui caja2 container">
 
     <div class="ui middle aligned centered aligned  ">
+
+
+<!--Barra de busqueda-->
+<div class="search">
+  <div class="ui category search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search animals...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+
+<!--Barra de busqueda-->
+
+
 <!-- comienza tabla---->
 <div class="tabla">
 
@@ -91,11 +117,17 @@
       </tbody>
       </table>
   </div>
- <div style="width: 733px; height: 100px; overflow-y: scroll; border-radius:0px 0px 4px 4px ; ">
-      <table class="ui selectable inverted table " style="text-align:center; border-radius:0px 0px 4px 4px ; ">
-        <thead >
+ <div style="width: 733px; height: 150px; overflow-y: scroll; border-radius:0px 0px 4px 4px ; ">
+      <table class="ui selectable inverted table " style="text-align:center; border-radius:0px 0px 4px 4px ;">
+        <thead style="visibility: hidden; " >
           <tr >
-            
+            <th >SKU</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Costo</th>
+            <th>Descripcion</th>
+            <th class="">Existencia</th>
           </tr>
         </thead>
 
@@ -107,6 +139,19 @@
      </div>
      </div>
 <!-- Termina tabla---->
+
+<!--Botones---->
+<div class="bot1">
+  <button class="ui teal button">Editar</button>
+  <button class="ui red button">Eliminar</button>
+</div>
+
+<div class="reg">
+  <i class="huge archive icon centered" style="margin-left:50px;"></i>
+  <br>
+  <button class="ui  button" onclick="location.href='regprod.html';">Registrar Productos</button>
+</div>
+<!--Fin  Botones---->
 
 
 
@@ -124,8 +169,8 @@
 
 
   <!--Parte final con el diseño de color verde-->
-  <div class="contenedor-div" style="bottom:-133px;">
-    <p class="stats"></p>
+  <div class="contenedor-div" style="bottom:-18px;">
+
 
   </div>
 
@@ -136,6 +181,7 @@
 <!--Aqui se llaman a los scripts que tendran interacccion con el html-->
 
 <script src="semantic/dist/semantic.min.js"></script>
+<script src="main.js"></script>
 <!--////Scripst////-->
 </body>
 

@@ -57,6 +57,29 @@ function createAddWindow(){
   })
 }
 
+//Se encargara de agregar ventana para agregar producto
+function AddProdWindow(){
+  //crea una nueva ventana
+  addWindow = new BrowserWindow({
+
+    title:'Add shoping List'
+  });
+  const {app, Menu} = require('electron')
+  //carga el archvi html en la ventana
+  addWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'regprod.html'),
+    protocol: 'file:',
+    slashes: true,
+    isResizable:false,
+
+  }));
+
+  //se encarga de recoleccion de basura
+  addWindow.on('close', function(){
+    addWindow = null;
+  })
+}
+
 //catch item:addWindow
 ipcMain.on('item:add', function(e, item){
    mainWindow.webContents.send('item:add', item);
@@ -64,6 +87,10 @@ ipcMain.on('item:add', function(e, item){
 
 });
 
+function dg(){
+  console.log("click");
+
+}
 
 
 

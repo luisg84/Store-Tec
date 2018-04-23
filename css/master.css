@@ -48,6 +48,43 @@ color: rgb(255, 255, 255);
 
 /*Quitar bordes dela cabecera de la tabla*/
 .sb{
-
+text-align: center;
   padding: 300px;
+}
+
+
+
+/*Pantalla de tareas*/
+/*estilos de barra de busqueda*/
+.search{
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 5px;
+
+}
+
+
+
+/*estilos Menu Horizontal*/
+.menbar{
+  width: 400px;
+  display:flex;
+margin-left: 200px;
+margin-top: -40px;
+}
+
+/*Estilos Botones*/
+.bot1{
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+/* <<<<<<Estilos de Pantalla de agregar producto>>>>>> */
+/* Formulario */
+.fm2{
+  text-align: center;
 }
