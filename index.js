@@ -1,33 +1,14 @@
-function gf(){
+const remote = require('electron').remote
+const main = remote.require('main.js')
 
-  console.log("2");
-}
 $(function(){
-  //se crea constante que manda a llamra a la libreria de mysql
-  const mysql = require('mysql')
-  //Se crea una constante que contienen una funcion con los datos de conexion de la base de datos
-  const connection = mysql.createConnection({
-    Host: '127.0.0.1',
-    Port: '3306',
-    user: 'root',
-    password: 'root',
-    database: 'StoreTec'
-  })
 
-//abrir conexion
-  connection.connect(function(err){
-    //Si hay un error nos mostrara esto
-    if(err){
-      console.log(err.code)
-      console.log(err.fatal)
-    }
-  })
 
 
 //-----------Agregar datos a la tabla productos desde la Bdd---------//
   let query = 'SELECT * FROM productos'
  //Funcion para ejecutar el query y nos devuelba el resultado o el error
-  connection.query(query, function(err, rows, fields){
+  main.connection.query(query, function(err, rows, fields){
     if(err){
       console.log("Error en la consulta")
       console.log(err)
@@ -60,11 +41,16 @@ $(function(){
 
 
   });
+
+  main.closeConnection();
 //-----------Fin Agregar datos a la tabla productos desde la Bdd---------//
 
   //-----------Agregar datos a la BDD de Productos---------//
 
+function gf(){
 
+  console.log("2");
+}
 
 
 
@@ -106,8 +92,5 @@ $(function(){
 
 
 
-//cierra conexion con la bdd
-  connection.end(function(){
 
-  })
 })
