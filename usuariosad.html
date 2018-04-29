@@ -63,8 +63,8 @@
 
   <div class="menbar">
     <div class="ui four item menu">
-  <a class="item" href="usuariosad.html">Usuario</a>
-  <a class="item active">Productos</a>
+  <a class="item active">Usuario</a>
+  <a class="item" href="tabla.html">Productos</a>
   <a class="item">Ventas</a>
   <a class="item ">Soporte</a>
 </div>
@@ -74,7 +74,7 @@
 
 
   <div class="ui titulo2 grid centered  " style="margin-top:20px;  text-align:center;" >
-      <h1 class="ui header  " >Productos</h1>
+      <h1 class="ui header  " >Usuarios</h1>
   </div>
   <div class="ui caja2 container">
 
@@ -85,7 +85,7 @@
 <div class="search">
   <div class="ui category search">
     <div class="ui icon input">
-      <input class="prompt" type="text" placeholder="Buscar producto">
+      <input class="prompt" type="text" placeholder="Buscar usuario...">
       <i class="search icon"></i>
     </div>
     <div class="results"></div>
@@ -100,38 +100,26 @@
 
 
   <div class="tab1 " style="">
-    <table class="ui selectable inverted table " style="text-align:center; border-radius:10px 10px 0px 0px;">
-    <thead >
-      <tr >
-        <th >SKU</th>
-        <th>Nombre</th>
-        <th>Marca</th>
-        <th>Modelo</th>
-        <th>Costo</th>
-        <th>Descripcion</th>
-        <th class="">Existencia</th>
-      </tr>
-    </thead>
-    <tbody class="">
 
-      </tbody>
-      </table>
   </div>
- <div style="width: 733px; height: 150px; overflow-y: scroll; border-radius:0px 0px 4px 4px ; ">
+ <div style="width: 733px; height: 150px; overflow-y: scroll; border-radius:0px 0px 4px 4px ; margin-top: 50px;" class="">
       <table class="ui selectable inverted table " style="text-align:center; border-radius:0px 0px 4px 4px ;">
-        <thead style="visibility: hidden; " >
+        <thead style=" " >
           <tr >
-            <th >SKU</th>
-            <th>Nombre</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Costo</th>
-            <th>Descripcion</th>
-            <th class="">Existencia</th>
+            <th >ID</th>
+          <th >Nombre</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th >Usuario</th>
+          <th>Contraseña</th>
+          <th >RFC</th>
           </tr>
         </thead>
 
-      <tbody class="tab centered aligned">
+      <tbody class="emp centered aligned">
 
 
       </tbody>
@@ -147,9 +135,10 @@
 </div>
 
 <div class="reg">
-  <i class="huge archive icon centered" style="margin-left:50px;"></i>
+
+  <i class="huge user plus icon centered" style="margin-left:50px;"></i>
   <br>
-  <button class="ui  button" onclick="location.href='regprod.html';">Registrar Productos</button>
+  <button class="ui  button" onclick="location.href='regusu.html';">Registrar Usuario</button>
 </div>
 <!--Fin  Botones---->
 
@@ -169,7 +158,7 @@
 
 
   <!--Parte final con el diseño de color verde-->
-  <div class="contenedor-div" style="bottom:-18px;">
+  <div class="contenedor-div" style="bottom:-19px;">
 
 
   </div>
