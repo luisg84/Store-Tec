@@ -63,10 +63,10 @@
 
   <div class="menbar">
     <div class="ui four item menu">
-  <a class="item active">Usuario</a>
+  <a class="item active" href="usuariosad.html">Empleado</a>
   <a class="item" href="tabla.html">Productos</a>
-  <a class="item">Ventas</a>
-  <a class="item ">Soporte</a>
+  <a class="item" href="Ventasad.html">Ventas</a>
+  <a class="item " href="soportead.html"> Soporte</a>
 </div>
 
   </div>
@@ -74,25 +74,14 @@
 
 
   <div class="ui titulo2 grid centered  " style="margin-top:20px;  text-align:center;" >
-      <h1 class="ui header  " >Usuarios</h1>
+      <h1 class="ui header  " >Empleados</h1>
   </div>
   <div class="ui caja2 container">
 
     <div class="ui middle aligned centered aligned  ">
 
 
-<!--Barra de busqueda-->
-<div class="search">
-  <div class="ui category search">
-    <div class="ui icon input">
-      <input class="prompt" type="text" placeholder="Buscar usuario...">
-      <i class="search icon"></i>
-    </div>
-    <div class="results"></div>
-  </div>
-</div>
 
-<!--Barra de busqueda-->
 
 
 <!-- comienza tabla---->
@@ -103,23 +92,18 @@
 
   </div>
  <div style="width: 733px; height: 150px; overflow-y: scroll; border-radius:0px 0px 4px 4px ; margin-top: 50px;" class="">
-      <table class="ui selectable inverted table " style="text-align:center; border-radius:0px 0px 4px 4px ;">
+      <table class="ui  inverted table " style="text-align:center; border-radius:0px 0px 4px 4px ;">
         <thead style=" " >
           <tr >
-            <th >ID</th>
-          <th >Nombre</th>
-          <th>Apellido Paterno</th>
-          <th>Apellido Materno</th>
-          <th>Direccion</th>
-          <th>Telefono</th>
-          <th>Email</th>
+            <th >Nombre</th>
+            <th class="chk">ID</th>
           <th >Usuario</th>
-          <th>Contraseña</th>
-          <th >RFC</th>
+          <th>Email</th>
+          <th >Opcion</th>
           </tr>
         </thead>
 
-      <tbody class="emp centered aligned">
+      <tbody class="emp centered aligned" >
 
 
       </tbody>
@@ -129,16 +113,16 @@
 <!-- Termina tabla---->
 
 <!--Botones---->
-<div class="bot1">
+<!-- <div class="bot1">
   <button class="ui teal button">Editar</button>
-  <button class="ui red button">Eliminar</button>
-</div>
+  <button class="ui red button boton">Eliminar</button>
+</div> -->
 
 <div class="reg">
 
   <i class="huge user plus icon centered" style="margin-left:50px;"></i>
   <br>
-  <button class="ui  button" onclick="location.href='regusu.html';">Registrar Usuario</button>
+  <button class="ui  button" onclick="location.href='regusu.html';">Registrar Empleado</button>
 </div>
 <!--Fin  Botones---->
 
@@ -158,7 +142,7 @@
 
 
   <!--Parte final con el diseño de color verde-->
-  <div class="contenedor-div" style="bottom:-19px;">
+  <div class="contenedor-div" style="bottom:-0px; position:absolute;">
 
 
   </div>

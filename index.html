@@ -11,12 +11,16 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  
+
 
   <!-- Site Properties -->
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="css/master.css">
+
+ <script src="index.js" charset="utf-8"></script>
+
+  </head>
 <body>
 
   <!--Formulario de inicio de secion -->
@@ -35,19 +39,23 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="email" placeholder="Usuario">
+              <input type="text" name="usuario" placeholder="Usuario">
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password" placeholder="Contraseña">
+              <input type="password" name="passw" placeholder="Contraseña">
             </div>
           </div>
-          <a href="panel_cont_ad.html" class="ui fluid  large blue submit button botp">Login</a>
+
+          <button type="button" name="button" class="ui fluid  large blue submit button botp testt">Login</button>
+            <div class="errus"><p class="errr"> </P></div>
         </div>
 
         <div class="ui error message"></div>
+
+
 
       </form>
 

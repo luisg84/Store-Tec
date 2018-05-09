@@ -88,3 +88,26 @@ margin-top: -40px;
 .fm2{
   text-align: center;
 }
+
+
+
+
+
+/* Estilos soporte */
+
+.rigtt{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+
+}
+
+.centflex{
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.errr{
+  color: rgb(255, 93, 88);
+}

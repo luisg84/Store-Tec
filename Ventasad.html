@@ -64,8 +64,8 @@
   <div class="menbar">
     <div class="ui four item menu">
   <a class="item " href="usuariosad.html">Empleado</a>
-  <a class="item active" href="tabla.html">Productos</a>
-  <a class="item" href="Ventasad.html">Ventas</a>
+  <a class="item" href="tabla.html">Productos</a>
+  <a class="item active" href="Ventasad.html">Ventas</a>
   <a class="item " href="soportead.html"> Soporte</a>
 </div>
 
@@ -73,26 +73,23 @@
 
 
 
+
+
   <div class="ui titulo2 grid centered  " style="margin-top:20px;  text-align:center;" >
-      <h1 class="ui header  " >Productos</h1>
+      <h1 class="ui header  " >Ventas</h1>
   </div>
+
+
+
+
   <div class="ui caja2 container">
+
+<div class="ui submit button  aling right" onclick="location.href='Ventasad.html';">Registrar  Venta</div>
 
     <div class="ui middle aligned centered aligned  ">
 
 
-<!--Barra de busqueda-->
-<div class="search">
-  <div class="ui category search">
-    <div class="ui icon input ">
-      <input class="prompt" type="text" placeholder="Buscar producto">
-      <i class="search icon "></i>
-    </div>
-    <div class="results"></div>
-  </div>
-</div>
 
-<!--Barra de busqueda-->
 
 
 <!-- comienza tabla---->
@@ -135,15 +132,15 @@
             <th >SKU</th>
             <th>Nombre</th>
             <th>Marca</th>
-            <th>Modelo</th>
             <th>Costo</th>
+            <th>Modelo</th>
+
 
             <th class="">Existencia</th>
-            <th>Opciones</th>
           </tr>
         </thead>
 
-      <tbody class="tab centered aligned " id="chk" >
+      <tbody class=" centered aligned tabsop" id="chk" >
 
 
       </tbody>
@@ -160,11 +157,11 @@
 
 
 
-<div class="reg">
-  <i class="huge archive icon centered" style="margin-left:50px;"></i>
-  <br>
-  <button class="ui  button" onclick="location.href='regprod.html';">Registrar Productos</button>
-</div>
+<div class="ui submit button red" onclick="location.href='tabla.html';">Cancelar Venta</div>
+<div class="ui submit button teal" onclick="gf()">Acreditar pago</div>
+
+
+
 <!--Fin  Botones---->
 
 
@@ -183,7 +180,7 @@
 
 
   <!--Parte final con el diseño de color verde-->
-  <div class="contenedor-div" style="bottom:-0px;position:absolute; ">
+  <div class="contenedor-div" style="bottom:-0px; position:absolute;">
 
 
   </div>

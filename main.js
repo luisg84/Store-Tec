@@ -45,7 +45,8 @@ function createAddWindow(){
   addWindow = new BrowserWindow({
     width: 300,
     height:200,
-    title:'Add shoping List'
+    title:'Add shoping List',
+    icon:__dirname+'/img/logo.svg'
   });
   const {app, Menu} = require('electron')
   //carga el archvi html en la ventana

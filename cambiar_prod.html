@@ -58,12 +58,12 @@
 
 <!--Flecha que regresa a la ventana anterior-->
   <div class="ui  " >
-    <a href="tabla.html"><i class="huge arrow alternate circle left outline icon teal"></i></a>
+    <a href="soporteusu.html"><i class="huge arrow alternate circle left outline icon teal"></i></a>
   </div>
 <!--fin  -->
 
   <div class="ui titulo2 grid centered  " style="margin-top:-10px;  text-align:center;" >
-      <h1 class="ui header  " >Registrar Productos</h1>
+      <h1 class="ui header  " >Cambiar Producto</h1>
   </div>
   <div class="ui caja2 container">
 
@@ -71,54 +71,40 @@
     <div class="ui middle aligned centered aligned  ">
 
 
-<!--icono de barras  -->
-<div class="ui center aligned container">
-  <i class="barcode icon massive " ></i>
-</div>
+
 
 <!-- Formulario -->
 <div class="fm2 ui  container center aligned form">
   <div class="ui
-  three column doubling stackable grid container">
+  one column doubling stackable grid container center aligned">
     <div class="column ">
+
       <div class="field">
-          <input type="text" name="sku" placeholder="SKU" id="sku" disabled>
+          <input type="text" name="shipping[first-name]" placeholder="SKU producto actual">
+        </div>
+      <div class="field">
+          <input type="text" name="shipping[first-name]" placeholder="SKU producto nuevo">
         </div>
         <div class="field">
-          <input type="text" name="nombreP" placeholder="Nombre">
+          <input type="text" name="shipping[first-name]" placeholder="Descripcion">
         </div>
-        <div class="field">
-        <input type="text" name="marcaP" placeholder="Marca">
+
+
+      <div class="field ">
+        <div class="ui submit button teal" onclick="location.href='soporteusu.html';">Actualizar reporte</div>
+      <div class="ui submit button red" onclick="location.href='soporteusu.html';">Cancelar</div>
+
       </div>
 
-      <div class="field">
-      <input type="text" name="modeloP" placeholder="Modelo">
-    </div>
 
-    </div>
-    <div class="column">
 
-      <div class="field">
-        <input type="text"  name="costoP" placeholder="Costo">
-      </div>
-      <div class="field">
-        <input type="text" name="existenciaP" placeholder="Existencia">
-      </div>
-      <div class="field">
-
-      <textarea rows="4" placeholder="Descripción" id="descripcionP"></textarea>
     </div>
 
 
-
-  </div>
 
   <div class="column ui center aligned container" style="margin-top:-20px;">
 
-    <div class="field ">
-    <div class="ui submit button red" onclick="location.href='tabla.html';">Cancelar</div>
-    <div class="ui submit button teal" onclick="gf()">Aceptar</div>
-    </div>
+
 
     </div>
 </div>
@@ -139,7 +125,7 @@
 
 
   <!--Parte final con el diseño de color verde-->
-  <div class="contenedor-div" style="bottom:-49px; ">
+  <div class="contenedor-div" style="bottom:-0px;position:absolute;">
 
 
   </div>
