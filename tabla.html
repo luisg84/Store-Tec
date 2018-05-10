@@ -85,12 +85,16 @@
 <div class="search">
   <div class="ui category search">
     <div class="ui icon input ">
-      <input class="prompt" type="text" placeholder="Buscar producto">
-      <i class="search icon "></i>
+      <input class="prompt " type="text" placeholder="Buscar producto" onkeyup = "if(event.keyCode == 13) busc()" name="buscc">
+    <i class="search icon " ></i>
     </div>
     <div class="results"></div>
+    <button type="button" name="" class="ui button busc">Buscar</button>
+  <button type="button" name="" class="ui button cance red">Cancelar</button>
   </div>
+
 </div>
+
 
 <!--Barra de busqueda-->
 
@@ -143,7 +147,7 @@
           </tr>
         </thead>
 
-      <tbody class="tab centered aligned " id="chk" >
+      <tbody class="tab centered aligned try" id="chk" >
 
 
       </tbody>

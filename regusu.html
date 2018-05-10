@@ -79,25 +79,25 @@
   three column doubling stackable grid container">
     <div class="column ">
       <div class="field">
-          <input type="text" name="shipping[first-name]" placeholder="Nombre de Usuario">
+          <input type="text" name="nomusu" placeholder="Nombre de Usuario">
         </div>
         <div class="field">
-          <input type="text" name="shipping[first-name]" placeholder="Contraseña">
+          <input type="password" name="pass" placeholder="Contraseña">
         </div>
         <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="E-mail">
+        <input type="text" name="email" placeholder="E-mail">
       </div>
 
       <div class="field">
-      <input type="text" name="shipping[first-name]" placeholder="Nombre">
+      <input type="text" name="nomb" placeholder="Nombre">
     </div>
 
     <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="Apellido Paterno">
+        <input type="text" name="apepat" placeholder="Apellido Paterno">
       </div>
 
       <div class="field">
-          <input type="text" name="shipping[first-name]" placeholder="Apellido Materno">
+          <input type="text" name="apemat" placeholder="Apellido Materno">
         </div>
 
     </div>
@@ -106,32 +106,34 @@
     <div class="column">
 
       <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="ID">
+        <input type="text" name="idus" placeholder="ID">
       </div>
       <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="Direccion">
-      </div>
-
-      <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="Telefono">
+        <input type="text" name="dir" placeholder="Direccion">
       </div>
 
       <div class="field">
-        <input type="text" name="shipping[first-name]" placeholder="RFC">
+        <input type="text" name="telf" placeholder="Telefono">
+      </div>
+
+      <div class="field">
+        <input type="text" name="rfc" placeholder="RFC">
       </div>
       <div class="field">
 
-        <select>
+        <select id="tipusu">
      <option value="">Tipo de Usuario</option>
      <option value="1">Administrador</option>
-     <option value="0">Usuario normal</option>
+     <option value="2">Usuario normal</option>
+     <option value="3">Usuario Ventas</option>
+     <option value="4">Usuario Soporte</option>
    </select>
     </div>
 
 
     <div class="field ">
     <div class="ui submit button red" onclick="location.href='usuariosad.html';">Cancelar</div>
-    <div class="ui submit button teal" onclick="location.href='usuariosad.html';">Aceptar</div>
+    <div class="ui submit button teal" onclick="regemp()">Aceptar</div>
     </div>
   </div>
 

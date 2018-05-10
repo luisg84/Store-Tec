@@ -24,7 +24,10 @@ connection.connect(function(err){
 
 $(function(){
 
+  ///////////////////////////////////////////////////////////
 
+
+  //----------Tabla Productos admin--------------//
 
 //-----------Agregar datos a la tabla productos desde la Bdd---------//
   let query = 'SELECT * FROM productos'
@@ -46,11 +49,12 @@ $(function(){
     $('.stats').append('Nombre: <span>'+ row.nom_cli +'</span> ')
 
 
+
 //Metodo para llenar las tablas de la aplicacion  dependiendo de el tampmañp de la tabla de la BDD
     for(var i=0; i<rows.length;i++){
       console.log(i);
-      $('.tab').after('<tr style="text-align: center;" >'+
-                      '<th class="delt">'+ rows[i].sku_pro +'</th>'+
+      $('.tab').after('<tr style="text-align: center;" class="delt">'+
+                      '<th >'+ rows[i].sku_pro +'</th>'+
                       '<th>'+ rows[i].nom +'</th>'+
                       '<th>'+ rows[i].mar +'</th>'+
                       '<th>'+ rows[i].mod +'</th>'+
@@ -73,7 +77,11 @@ $(function(){
 
                           $("#sku").val(skunum)
 
+//----------Tabla Productos admin--------------//
 
+///////////////////////////////////////////////////////////
+
+//----------Tabla Soporte admin--------------//
 
                       // llenar tabla soporte
             for(var i=0; i<rows.length;i++){
@@ -94,8 +102,14 @@ $(function(){
 
   });
 
+  //----------Tabla Soporte admin--------------//
 
-let querye = 'SELECT * FROM empleado'
+
+///////////////////////////////////////////////////////////
+
+//----------Tabla Usuarios admin--------------//
+
+let querye = 'SELECT * FROM usuario'
   connection.query(querye, function(err, rows, fields){
     if(err){
       console.log("Error en la consulta")
@@ -114,8 +128,8 @@ let querye = 'SELECT * FROM empleado'
       console.log(i);
       //
       $('.emp').append('<tr style="text-align: center;" class="chk" >'+
-                      '<th>'+ rows[i].nom_emp +'</th>'+
-                      '<th >'+ rows[i].id_emp +'</th>'+
+                      '<th>'+ rows[i].nom_usu +'</th>'+
+                      '<th >'+ rows[i].id_usu +'</th>'+
                          '<th>'+ rows[i].usu +'</th>'+
                       '<th>'+ rows[i].email +'</th>'+
 
@@ -130,6 +144,48 @@ let querye = 'SELECT * FROM empleado'
 
 
   });
+
+  //----------Tabla Usuarios admin--------------//
+
+  ///////////////////////////////////////////////////////////
+
+  //----------Tabla Productos emp--------------//
+
+  let querypod = 'SELECT * FROM productos'
+    connection.query(querypod, function(err, rows, fields){
+      if(err){
+        console.log("Error en la consulta")
+        console.log(err)
+        return
+      }
+
+      //nos devuelve una row
+
+      let row2 = rows[1]
+      //Se mandan los datos ibtenidos al html
+
+
+      //Metodo para llenar las tablas de la aplicacion  dependiendo de el tampmañp de la tabla de la BDD
+          for(var i=0; i<rows.length;i++){
+            console.log(i);
+            $('.usuprod').after('<tr style="text-align: center;" >'+
+                            '<th class="delt">'+ rows[i].sku_pro +'</th>'+
+                            '<th>'+ rows[i].nom +'</th>'+
+                            '<th>'+ rows[i].mar +'</th>'+
+                            '<th>'+ rows[i].mod +'</th>'+
+                            '<th>'+ rows[i].cost +'</th>'+
+
+                            '<th>'+ rows[i].exist +'</th>'+
+                            '</tr>')
+                          }
+
+
+
+
+
+    });
+
+    //----------Tabla Productos emp--------------//
 
 //-----------Fin Agregar datos a la tabla productos desde la Bdd---------//
 
@@ -165,7 +221,7 @@ const descripcionP =  "'"+$("#descripcionP").val()+"'"
 
 
 
-
+//se crea la constante con el query que se ejecutara en la bdd
 let query4 =  "INSERT INTO `productos` (`sku_pro`, `nom`, `mar`, `mod`, `cost`, `desc`, `exist`) VALUES ("+sku+","+nombreP+","+marcaP+","+modeloP+","+costoP+","+descripcionP+","+existenciaP+");"
 
 console.log(query4)
@@ -189,10 +245,74 @@ INSERT INTO `productos` (`sku_pro`, `nom`, `mar`, `mod`, `cost`, `desc`, `exist`
 
 
 });
-
+alert("Producto agregado correctamente");
 location.href='tabla.html';
 
 }
+
+///////////////////////////////////////////////////////
+//------<<<<<<<Registro de Empleados>>>>>>>-------//
+function regemp(){
+
+
+  //obtengo los valores de el formulario y los agregamos a una variable
+const nomus = "'"+$('input:text[name=nomusu]').val()+"'"
+
+const pasw = "'"+$('input:password[name=pass]').val()+"'"
+
+const emai = "'"+$('input:text[name=email]').val()+"'"
+
+const nomb = "'"+$('input:text[name=nomb]').val()+"'"
+
+const apepat = "'"+$('input:text[name=apepat]').val()+"'"
+
+const apemat = "'"+$('input:text[name=apemat]').val()+"'"
+
+const idus = "'"+$('input:text[name=idus]').val()+"'"
+
+const dirus = "'"+$('input:text[name=dir]').val()+"'"
+
+const telus = "'"+$('input:text[name=telf]').val()+"'"
+
+const rfc = "'"+$('input:text[name=rfc]').val()+"'"
+
+const tipus = "'"+$('select[id=tipusu]').val()+"'"
+
+
+
+
+
+// location.href='usuariosad.html';
+
+
+
+
+
+
+//se crea la constante con el query que se ejecutara en la bdd
+var query5 =  "INSERT INTO `usuario` (`id_usu`, `nom_usu`, `apemat_usu`, `apepat_usu`, `rfc`, `tel`, `email`, `usu`, `con`, `tip_usu`) VALUES ("+idus+","+nomb+","+apemat+","+apepat+","+rfc+","+telus+","+emai+","+nomus+","+pasw+","+tipus+");"
+
+
+
+
+
+  //Funcion para ejecutar el query y nos devuelba el resultado o el error
+  connection.query(query5, function(err, rows, fields){
+    if(err){
+      console.log("Error en la consulta")
+      console.log(err)
+      return
+    }
+
+
+
+});
+alert("Usuario agregado correctamente");
+location.href='usuariosad.html';
+
+}
+
+///////////////////////////////////////////////////////
 
 
 
@@ -286,10 +406,99 @@ $(function(){
 // ------ Buscar------- //
 
 $(function(){
+
       $(document).on("click", ".busc", function(){
-              alert("Buscando");
+
+
+
+
+        const busc = "'"+$('input:text[name=buscc]').val()+"'"
+
+        let query7 =  "SELECT * FROM `productos` WHERE `productos`.`nom` = " + busc +"OR `productos`.`mar` ="+ busc +"OR `productos`.`sku_pro` ="+ busc +"OR `productos`.`mod` ="+ busc+"OR `productos`.`cost` ="+ busc;
+
+        connection.query(query7, function(err, rows, fields){
+          if(err){
+            console.log("Error en la consulta")
+            console.log(err)
+            return
+          }
+
+
+              $(".delt").empty();
+            var result = rows[0].mar
+
+
+
+
+            for(var i=0; i<rows.length;i++){
+              console.log(i);
+              $('.tab').after('<tr style="text-align: center;" class="delt">'+
+                              '<th >'+ rows[i].sku_pro +'</th>'+
+                              '<th>'+ rows[i].nom +'</th>'+
+                              '<th>'+ rows[i].mar +'</th>'+
+                              '<th>'+ rows[i].mod +'</th>'+
+                              '<th>'+ rows[i].cost +'</th>'+
+
+                              '<th>'+ rows[i].exist +'</th>'+
+                                '<th>'+ '<div class="bot1"> <button class="ui teal button boton blog-test">Editar</button><button class="ui red button elimbut" >Eliminar</button></div>'+'</th>'+
+
+                              '</tr>')
+                            }
+
+      });
+
+
+
+
         });
+
+
+        $(document).on("click", ".cance", function(){
+
+          let query8 = 'SELECT * FROM productos'
+
+
+
+          connection.query(query8, function(err, rows, fields){
+            if(err){
+              console.log("Error en la consulta")
+              console.log(err)
+              return
+            }
+
+
+                $(".delt").empty();
+
+
+
+              for(var i=0; i<rows.length;i++){
+                console.log(i);
+                $('.tab').after('<tr style="text-align: center;" class="delt">'+
+                                '<th >'+ rows[i].sku_pro +'</th>'+
+                                '<th>'+ rows[i].nom +'</th>'+
+                                '<th>'+ rows[i].mar +'</th>'+
+                                '<th>'+ rows[i].mod +'</th>'+
+                                '<th>'+ rows[i].cost +'</th>'+
+
+                                '<th>'+ rows[i].exist +'</th>'+
+                                  '<th>'+ '<div class="bot1"> <button class="ui teal button boton blog-test">Editar</button><button class="ui red button elimbut" >Eliminar</button></div>'+'</th>'+
+
+                                '</tr>')
+                              }
+
+        });
+
+          });
+
 });
+
+
+
+function busc(){
+
+
+
+}
 
 // ------ Buscar------- //
 
@@ -348,12 +557,12 @@ $(document).on("click", ".testt", function(){
           }else if (rows[i].usu==usu && rows[i].con==pass && rows[i].tip_usu==3) {
             alert("se encontro el usuario Cajero");
               i=rows.length
-              location.href='panel_cont_P.html';
+              location.href='panel_cont_V.html';
               //se verifica el tipo de usuario Soporte
           }else if (rows[i].usu==usu && rows[i].con==pass && rows[i].tip_usu==4) {
             alert("se encontro el usuario soporte");
               i=rows.length
-              location.href='panel_cont_P.html';
+              location.href='panel_cont_S.html';
               //en caso de que no alla coincidencias se muestra un texto con error
           }else if (i==rows.length-1) {
 
@@ -361,25 +570,6 @@ $(document).on("click", ".testt", function(){
           }
 
       }
-
-
-
-
-
-
-
-
-
-  //Metodo para llenar las tablas de la aplicacion  dependiendo de el tampmañp de la tabla de la BDD
-
-
-
-
-
-
-
-
-
 
 
     });
