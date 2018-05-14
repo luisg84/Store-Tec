@@ -133,13 +133,19 @@ let querye = 'SELECT * FROM usuario'
                          '<th>'+ rows[i].usu +'</th>'+
                       '<th>'+ rows[i].email +'</th>'+
 
-                      '<th>'+ '<div class="bot1"> <button class="ui teal button"onclick="edit()">Editar</button><button class="ui red button">Eliminar</button></div>'+'</th>'+
+                      '<th>'+ '<div class="bot1"> <button class="ui teal button"onclick="edit()">Editar</button><button class="ui red button elimusu">Eliminar</button></div>'+'</th>'+
 
 
                       '</tr>')
                     }
 
 
+                    var cont = rows.length-1;
+
+
+                    var sautid = rows[cont].id_usu + 1;
+
+                      $("#idusu").val(sautid)
 
 
 
@@ -319,6 +325,9 @@ location.href='usuariosad.html';
 //------Editar producto------//
 $(function(){
 
+
+
+
   $(document).on("click", ".boton", function(){
 
 
@@ -343,11 +352,118 @@ $(function(){
 
           alert(datpro[0]+" "+datpro[1]+" "+datpro[2]+" "+datpro[3]+" "+datpro[4]+" "+datpro[5]);
 
+          var idi = "'"+datpro[0]+"'";
+          var nompr = "'"+datpro[1]+"'";
 
+          //se crea la constante con el query que se ejecutara en la bdd
+          var query6 =  "INSERT INTO `edit_prod` (`idedit`, `nom`) VALUES ("+idi+","+nompr+");"
+
+
+
+
+            alert(query6);
+
+            //Funcion para ejecutar el query y nos devuelba el resultado o el error
+            connection.query(query6, function(err, rows, fields){
+              if(err){
+                console.log("Error en la consulta")
+                console.log(err)
+                return
+              }
+
+                alert("insertado");
+
+          });
+
+
+            location.href='editprod.html';
+
+            // const electron = requiere('electron');
+            // const {ipcRenderer} = electron;
+            //
+            // const form = document.query
 
 
   });
+
+
 });
+
+//Funcion que actulizara la bdd al darle acepyar
+function edita(){
+  //obtengo los valores de el formulario y los agregamos a una variable
+const sku = "'"+$('input:text[name=skuedit]').val()+"'"
+
+const nombreP = "'"+$('input:text[name=nombrePedit]').val()+"'"
+
+const marcaP = "'"+$('input:text[name=marcaPedit]').val()+"'"
+
+const modeloP = "'"+$('input:text[name=modeloPedit]').val()+"'"
+
+const costoP = "'"+$('input:text[name=costoPedit]').val()+"'"
+
+const existenciaP = "'"+$('input:text[name=existenciaPedit]').val()+"'"
+
+const descripcionP =  "'"+$("#descripcionP").val()+"'"
+
+
+
+
+let query12 =  "UPDATE `productos` SET `nom` = "+nombreP+", `mar` = "+marcaP +", `mod` ="+ modeloP+ ", `cost` =" + costoP +", `desc` =" +descripcionP+", `exist` ="+existenciaP+ "WHERE `productos`.`sku_pro` ="+ sku;
+
+//se crea la constante con el query que se ejecutara en la bdd
+
+
+console.log(query12)
+
+/*
+// let query4 = "INSERT INTO `productos` (`sku_pro`, `nom`, `mar`, `mod`, `cost`, `desc`, `exist`) VALUES ('1120','consola','nintendo','switch','7000','nueva','3');";
+
+INSERT INTO `productos` (`sku_pro`, `nom`, `mar`, `mod`, `cost`, `desc`, `exist`) VALUES ('1120','consola','nintendo','sw','' '','');*/
+
+
+
+
+  //Funcion para ejecutar el query y nos devuelba el resultado o el error
+  connection.query(query12, function(err, rows, fields){
+    if(err){
+      console.log("Error en la consulta")
+      console.log(err)
+      return
+    }
+alert("si se actuallizo ")
+
+
+});
+alert("Producto agregado correctamente");
+location.href='tabla.html';
+
+borr(sku);
+
+
+}
+
+function borr(t){
+
+
+
+  let query13 =  "DELETE FROM `edit_prod` WHERE `edit_prod`.`idedit` = " + t;
+
+  connection.query(query13, function(err, rows, fields){
+    if(err){
+      console.log("Error en la consulta")
+      console.log(err)
+      return
+    }
+alert("si se borro edit")
+
+
+});
+}
+
+
+
+
 
 //------Editar producto------//
 
@@ -356,7 +472,15 @@ $(function(){
 
 $(function(){
 
+
+
+
+
+
   $(document).on("click", ".elimbut", function(){
+
+
+
     var valores="";
     var i=0;
     var datel = new Array(7);
@@ -369,10 +493,6 @@ $(function(){
       i++;
 
     });
-
-
-
-
 
 
 
@@ -394,6 +514,8 @@ $(function(){
   event.preventDefault();
       $(this).closest('tr').remove();
 
+      alert("Eliminado correctamente");
+
 
   });
 });
@@ -402,20 +524,83 @@ $(function(){
 
 //------Eliminar fila------//
 
+//------Eliminar fila Usuarios------//
+
+$(function(){
+
+
+
+
+
+
+  $(document).on("click", ".elimusu", function(){
+
+
+    var valores="";
+    var i=0;
+    var datel = new Array(7);
+
+
+    // Obtenemos todos los valores contenidos en los <td> de la fila
+    // seleccionada
+    $(this).parents("tr").find("th").each(function(){
+      datel[i]=$(this).html();
+      i++;
+
+    });
+
+
+
+
+
+
+
+//variable que contienen el query para eliminar  la fila de la base de datos
+    let query4 =  "DELETE FROM `usuario` WHERE `usuario`.`id_usu` = " + datel[1]
+
+    connection.query(query4, function(err, rows, fields){
+      if(err){
+        console.log("Error en la consulta")
+        console.log(err)
+        return
+      }
+
+
+
+  });
+
+//elimina la fila de la tabla
+  event.preventDefault();
+      $(this).closest('tr').remove();
+
+      alert("Usuario eliminado correctamente");
+
+
+  });
+});
+
+
+
+//------Eliminar fila Usuarios------//
+
 
 // ------ Buscar------- //
 
 $(function(){
 
+
+      //Detecta el click al boton buscar  para ejecutar la funcion
       $(document).on("click", ".busc", function(){
 
 
 
-
+          //constante que obtienen el valor de el input de buscar
         const busc = "'"+$('input:text[name=buscc]').val()+"'"
 
+          //se crea el query que se ejecutara la consulat en la BDD
         let query7 =  "SELECT * FROM `productos` WHERE `productos`.`nom` = " + busc +"OR `productos`.`mar` ="+ busc +"OR `productos`.`sku_pro` ="+ busc +"OR `productos`.`mod` ="+ busc+"OR `productos`.`cost` ="+ busc;
 
+          //Funcion que ejecuta el query en la BDD
         connection.query(query7, function(err, rows, fields){
           if(err){
             console.log("Error en la consulta")
@@ -424,12 +609,13 @@ $(function(){
           }
 
 
+
               $(".delt").empty();
             var result = rows[0].mar
 
 
 
-
+                //se genera la tabla con los datos que coinciden con la busqueda
             for(var i=0; i<rows.length;i++){
               console.log(i);
               $('.tab').after('<tr style="text-align: center;" class="delt">'+
@@ -452,13 +638,14 @@ $(function(){
 
         });
 
-
+          //Funcion que se jecuta al precionar cancelar
         $(document).on("click", ".cance", function(){
 
+            //se Crea una constante con el query que mostrara todos los prodcutos
           let query8 = 'SELECT * FROM productos'
 
 
-
+            //Funcion que ejecuta el query en la BDD
           connection.query(query8, function(err, rows, fields){
             if(err){
               console.log("Error en la consulta")
@@ -466,11 +653,11 @@ $(function(){
               return
             }
 
-
+              //borra la tabla con el resultado de la busqueda
                 $(".delt").empty();
 
 
-
+                  //pinta la tabla con todos los datos de la BDD
               for(var i=0; i<rows.length;i++){
                 console.log(i);
                 $('.tab').after('<tr style="text-align: center;" class="delt">'+
@@ -494,11 +681,6 @@ $(function(){
 
 
 
-function busc(){
-
-
-
-}
 
 // ------ Buscar------- //
 
@@ -506,6 +688,7 @@ function busc(){
 
 //-----Login---//
 $(function(){
+
 
 
 //funcion que se ejecutara cuando detecte el evento click en el elementocon la clase testt

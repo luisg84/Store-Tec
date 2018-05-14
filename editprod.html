@@ -81,31 +81,31 @@
   three column doubling stackable grid container">
     <div class="column ">
       <div class="field">
-          <input type="text" name="sku" placeholder="SKU" id="sku">
+          <input type="text" name="skuedit" placeholder="SKU" id="skuedit">
         </div>
         <div class="field">
-          <input type="text" name="nombreP" placeholder="Nombre">
+          <input type="text" name="nombrePedit" placeholder="Nombre">
         </div>
         <div class="field">
-        <input type="text" name="marcaP" placeholder="Marca">
+        <input type="text" name="marcaPedit" placeholder="Marca">
       </div>
 
       <div class="field">
-      <input type="text" name="modeloP" placeholder="Modelo">
+      <input type="text" name="modeloPedit" placeholder="Modelo">
     </div>
 
     </div>
     <div class="column">
 
       <div class="field">
-        <input type="text" name="costoP" placeholder="Costo">
+        <input type="text" name="costoPedit" placeholder="Costo">
       </div>
       <div class="field">
-        <input type="text" name="existenciaP" placeholder="Existencia">
+        <input type="text" name="existenciaPedit" placeholder="Existencia">
       </div>
       <div class="field">
 
-      <textarea rows="4" placeholder="Descripción" id="descripcionP"></textarea>
+      <textarea rows="4" placeholder="Descripciónedit" id="descripcionP"></textarea>
     </div>
 
 
@@ -116,7 +116,7 @@
 
     <div class="field ">
     <div class="ui submit button red" onclick="location.href='tabla.html';">Cancelar</div>
-    <div class="ui submit button teal" onclick="gf()">Aceptar</div>
+    <div class="ui submit button teal" onclick="edita()">Aceptar</div>
     </div>
 
     </div>
@@ -150,6 +150,52 @@
 <!--Aqui se llaman a los scripts que tendran interacccion con el html-->
  <script src="index.js" charset="utf-8"></script>
 <script src="semantic/dist/semantic.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+  let query10 = 'SELECT * FROM edit_prod'
+    connection.query(query10, function(err, rows, fields){
+      if(err){
+        console.log("Error en la consulta")
+        console.log(err)
+        return
+      }
+        $('input:text[name=skuedit]').val(rows[0].idedit);
+
+    llendit(rows[0].idedit);
+
+          });
+
+})
+
+
+function llendit(e){
+
+  let query11 = "SELECT * FROM productos WHERE `productos`.`sku_pro` = " + e;
+
+  alert(query11)
+    connection.query(query11, function(err, rows, fields){
+      if(err){
+        console.log("Error en la consulta")
+        console.log(err)
+        return
+      }
+
+          $('input:text[name=nombrePedit]').val(rows[0].nom);
+          $('input:text[name=marcaPedit]').val(rows[0].mar);
+          $('input:text[name=modeloPedit]').val(rows[0].mod);
+          $('input:text[name=costoPedit]').val(rows[0].cost);
+          $('input:text[name=existenciaPedit]').val(rows[0].exist);
+          $("#descripcionP").val(rows[0].desc)
+
+
+
+
+          });
+
+}
+</script>
 <!--////Scripst////-->
 </body>
 
