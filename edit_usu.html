@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +47,7 @@
            })
            ;
    </script>
-   <script src="index.js" charset="utf-8"></script>
+   <script src="js/usuarios.js" charset="utf-8"></script>
  </head>
 <body>
 
@@ -58,7 +59,7 @@
 
 
   <div class="ui titulo2 grid centered  " style="margin-top:-10px;  text-align:center;" >
-      <h1 class="ui header  " >Editar Productos</h1>
+      <h1 class="ui header  " >Editar Empleado</h1>
   </div>
   <div class="ui caja2 container">
 
@@ -66,10 +67,7 @@
     <div class="ui middle aligned centered aligned  ">
 
 
-<!--icono de barras  -->
-<div class="ui center aligned container">
-  <i class="barcode icon massive " ></i>
-</div>
+
 
 <!-- Formulario -->
 <div class="fm2 ui  container center aligned form">
@@ -77,43 +75,58 @@
   three column doubling stackable grid container">
     <div class="column ">
       <div class="field">
-          <input type="text" name="skuedit" placeholder="SKU" id="skuedit" disabled>
+          <input type="text" name="nomusuedit" placeholder="Nombre de Usuario">
         </div>
         <div class="field">
-          <input type="text" name="nombrePedit" placeholder="Nombre">
+          <input type="password" name="passedit" placeholder="Contraseña">
         </div>
         <div class="field">
-        <input type="text" name="marcaPedit" placeholder="Marca">
+        <input type="text" name="emailedit" placeholder="E-mail">
       </div>
 
       <div class="field">
-      <input type="text" name="modeloPedit" placeholder="Modelo">
+      <input type="text" name="nombedit" placeholder="Nombre">
     </div>
 
+    <div class="field">
+        <input type="text" name="apepatedit" placeholder="Apellido Paterno">
+      </div>
+
+      <div class="field">
+          <input type="text" name="apematedit" placeholder="Apellido Materno">
+        </div>
+
     </div>
+
+    <!-- Columna 2 -->
     <div class="column">
 
       <div class="field">
-        <input type="text" name="costoPedit" placeholder="Costo">
+        <input type="text" name="idusedit" placeholder="ID" id="idusu" disabled>
       </div>
       <div class="field">
-        <input type="text" name="existenciaPedit" placeholder="Existencia">
+        <input type="text" name="diredit" placeholder="Direccion">
       </div>
-      <div class="field">
 
-      <textarea rows="4" placeholder="Descripciónedit" id="descripcionP"></textarea>
+      <div class="field">
+        <input type="text" name="telfedit" placeholder="Telefono">
+      </div>
+
+      <div class="field">
+        <input type="text" name="rfcedit" placeholder="RFC">
+      </div>
+
+
+
+    <div class="field ">
+    <div class="ui submit button red" onclick="cancelus()">Cancelar</div>
+    <div class="ui submit button teal" onclick="editaus()">Aceptar</div>
     </div>
-
-
-
   </div>
 
   <div class="column ui center aligned container" style="margin-top:-20px;">
 
-    <div class="field ">
-    <div class="ui submit button red" onclick="cancel()">Cancelar</div>
-    <div class="ui submit button teal" onclick="edita()">Aceptar</div>
-    </div>
+
 
     </div>
 </div>
@@ -144,7 +157,7 @@
 
 <!--////Scripst////-->
 <!--Aqui se llaman a los scripts que tendran interacccion con el html-->
- <script src="index.js" charset="utf-8"></script>
+ <script src="js/usuarios.js" charset="utf-8"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 
 <script type="text/javascript">
@@ -157,7 +170,7 @@ $(function(){
         console.log(err)
         return
       }
-        $('input:text[name=skuedit]').val(rows[0].idedit);
+        $('input:text[name=idusedit]').val(rows[0].idedit);
 
     llendit(rows[0].idedit);
 
@@ -168,7 +181,8 @@ $(function(){
 
 function llendit(e){
 
-  let query11 = "SELECT * FROM productos WHERE `productos`.`sku_pro` = " + e;
+
+  let query11 = "SELECT * FROM usuario WHERE `usuario`.`id_usu` = " + e;
 
 
     connection.query(query11, function(err, rows, fields){
@@ -178,13 +192,21 @@ function llendit(e){
         return
       }
 
-          $('input:text[name=nombrePedit]').val(rows[0].nom);
-          $('input:text[name=marcaPedit]').val(rows[0].mar);
-          $('input:text[name=modeloPedit]').val(rows[0].mod);
-          $('input:text[name=costoPedit]').val(rows[0].cost);
-          $('input:text[name=existenciaPedit]').val(rows[0].exist);
-          $("#descripcionP").val(rows[0].desc)
 
+
+
+          $('input:text[name=nomusuedit]').val(rows[0].usu);
+          $('input:password[name=passedit]').val(rows[0].con);
+          $('input:text[name=emailedit]').val(rows[0].email);
+          $('input:text[name=nombedit]').val(rows[0].nom_usu);
+          $('input:text[name=apepatedit]').val(rows[0].apepat_usu);
+          // $("#descripcionP").val(rows[0].desc)
+
+          $('input:text[name=apematedit]').val(rows[0].apemat_usu);
+          // $('input:text[name=idusedit]').val(rows[0].id_usu);
+          $('input:text[name=diredit]').val(rows[0].dir_usu);
+          $('input:text[name=telfedit]').val(rows[0].tel);
+          $('input:text[name=rfcedit]').val(rows[0].rfc);
 
 
 
